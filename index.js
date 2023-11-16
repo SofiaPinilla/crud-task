@@ -7,6 +7,8 @@ const { dbConnection } = require("./config/config");
 
 app.use(express.json());
 
+app.use("/tasks", require("./routes/tasks"));
+
 dbConnection();
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

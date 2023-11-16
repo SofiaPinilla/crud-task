@@ -23,6 +23,15 @@ const TaskController = {
 			console.error(error)
 			res.status(500).send({msg:"Error trying to get all tasks", error})
 		}
-	}
+	},
+	async getById (req,res) {
+		try {
+			const task = await Task.findById(req.params._id)
+			res.status(200).send(task)
+		} catch (error) {
+			console.error(error)
+			res.status(500).send({msg:"Error trying to get a task with Id", error})
+		}
+	},
 };
 module.exports = TaskController;

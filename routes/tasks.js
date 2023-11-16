@@ -7,5 +7,6 @@ router.get("/", TaskController.getAll);
 router.get("/:_id", TaskController.getById);
 router.put("/:_id", TaskController.complete);
 router.put("/update/:_id", TaskController.update);
+router.delete("/:_id", TaskController.delete);
 
 module.exports = router;

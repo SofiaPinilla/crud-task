@@ -65,5 +65,20 @@ const TaskController = {
         .send({ msg: "Unexpected error trying to update the task", error });
     }
   },
+
+  async delete(req, res) {
+    try {
+      await Task.deleteOne(
+        {_id: req.params._id}
+      );
+      res.status(200).send({message: "Task deleted"});
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .send({ msg: "Unexpected error trying to delete the task", error });
+    }
+  }
+
 };
 module.exports = TaskController;

@@ -17,7 +17,8 @@ const TaskController = {
   },
   async getAll(req, res) {
     try {
-      const tasks = await Task.find();
+      // const tasks = await Task.find().sort([['createdAt', -1]])
+      const tasks = await Task.find().sort({createdAt:-1})
       res.status(200).send(tasks);
     } catch (error) {
       console.error(error);
